@@ -2,14 +2,24 @@
   "name": "boilerlite",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.16.0",
+    "babelify": "^5.0.3",
+    "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.3",
+    "gulp-derequire": "^2.0.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
+    "gulp-jshint": "^1.9.2",
+    "gulp-minify-css": "^0.4.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.5.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -29,6 +39,14 @@
     "gulp.spritesmith": "^6.2.1",
     "imagemin-pngquant": "^5.0.0",
     "pug": "^2.0.0-beta6",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "gulp-uglify": "^1.1.0",
+    "map-stream": "0.0.5",
+    "node-notifier": "^4.1.2",
+    "reactify": "^1.0.0",
+    "require-dir": "^0.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.4.0"
   }
 }

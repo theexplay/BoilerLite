@@ -1,0 +1,29 @@
+// Шрифты
+$_f__base = Arial, Helvetica, FreeSans, sans-serif
+
+// Применяется по умолчанию к body
+$_f__common = $_f__base
+
+
+/**
+ * @mixin
+ * Миксин для быстрой генерации путей, а также
+ * предотвратить использование установленного шрифта
+ * в системе с таким же названием
+ * @param {string} $prefix - Полное название шрифта
+ * @param {string} $prefix - Часть которую необходимо заменить
+ * @param {string} $prefix - Новое имя
+ * @example _font_face(Example-Regular, Example, exp)
+ */
+_font_face($font-name, $longName, $shortName)
+  $font__key = replace($longName, $shortName, $font-name)
+  $font__url = url('../fonts/'$font-name'/'$font-name'.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/'$font-name'/'$font-name'.woff') format('woff'),
+    url('../assets/fonts/'$font-name'/'$font-name'.ttf')  format('truetype'),
+    url('../assets/fonts/'$font-name'/'$font-name'.svg#$font-name') format('svg')
+
+  @font-face
+    font-family: $font__key
+    src: $font__url
+    font-weight: normal
+    font-style: normal

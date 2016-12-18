@@ -1,0 +1,28 @@
+@import "_icon__constants"
+
+_icon($icon, $font-size, $line-height = 1)
+	content: $icon
+	font-size: $font-size
+	line-height: $line-height
+	font-family: $_i__font-name
+	font-style: normal
+	font-weight: normal
+	speak: none
+	user-select: none
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	{block}
+
+_icon__all($icons)
+	for $iconName in $icons
+		.icon_{$iconName}
+			_icon(lookup('$_i__'+$iconName))
+
+@font-face
+	font-family: $_i__font-name
+	src: url('../assets/fonts/'+$_i__font-name+'.eot');
+	src: url('../assets/fonts/'+$_i__font-name+'.eot?#iefix') format('eot'),
+		url('../assets/fonts/'+$_i__font-name+'.woff') format('woff'),
+		url('../assets/fonts/'+$_i__font-name+'.ttf') format('truetype')
+	font-weight: normal
+	font-style: normal

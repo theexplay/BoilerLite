@@ -1,0 +1,75 @@
+/** @typography Заголовок первого уровня */
+$_t__style-h1 = {
+  font-family: $_f__common
+  font-size: 46px
+  line-height: 62px
+}
+
+$_t__style-h1__mobile = {
+  font-family: $_f__common
+  font-size: 32px
+  line-height: 36px
+}
+
+/** @typography Заголовок второго уровня */
+$_t__style-h2 = {
+  font-family: $_f__common
+  font-size: 32px
+  line-height: 48px
+}
+
+/** @typography Заголовок третьего уровня */
+$_t__style-h3 = {
+  font-family: $_f__common
+  font-size: 26px
+  line-height: 28px
+}
+
+/** @typography Заголовок четвёртого уровня */
+$_t__style-h4 = {
+  font-family: $_f__common
+  font-size: 17px
+  line-height: 24px
+}
+
+/** @typography Основной текст */
+$_t__style-text = {
+  font-family: $_f__common
+  font-size: 18px
+  line-height: 26px
+}
+
+$_t__style-text__mobile = {
+  font-family: $_f__common
+  font-size: 16px
+  line-height: 20px
+}
+
+/** @typography Основной текст */
+$_t__style-link = {
+  font-family: $_f__common
+  font-size: 13px
+  line-height: 24px
+}
+
+/**
+ * @mixin Применить стиль, соответствующий определённому типу элемента
+ * @param {object} $style Объект со свойствами стилей, которые нужно применить (например, $_t__style-h3)
+ * @param {(ident|ident[])=all} [$props] Список свойств для применения (либо ключевое слово: all, no-size, size)
+ * @example
+ *   _typography__style($_t__style-h4)                        // применит все свойства из $_t__style-h4
+ *   _typography__style($_t__style-h3, no-size)               // применит все свойства из $_t__style-h3, кроме font-size, line-height
+ *   _typography__style($_t__style-h2, size)                  // применит font-size и line-height из $_t__style-h2
+ *   _typography__style($_t__style-h1, font-size font-weight) // применит font-size и font-weight из $_t__style-h1
+ */
+_typography__style($style, $props = all)
+	if $props == all
+		$props = keys($style)
+	else if $props == no-size
+		$props = keys(remove(clone($style), 'font-size'))
+		$props = keys(remove(clone($style), 'line-height'))
+	else if $props == size
+		$props = font-size line-height
+	for $prop, $val in $style
+		if $prop in $props
+			{$prop}: $val

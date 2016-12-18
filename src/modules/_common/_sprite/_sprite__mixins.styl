@@ -1,0 +1,20 @@
+@import '_sprite__constants'
+
+_spriteWidth($sprite)
+	width $sprite[4]
+
+_spriteHeight($sprite)
+	height $sprite[5]
+
+_spritePosition($sprite)
+	background-position $sprite[2] $sprite[3]
+
+_spriteImage($sprite)
+	background-image url(../img/$sprite[8])
+
+_sprite($sprite)
+	if !match('hover', selector()) && !match('active', selector())
+		_spriteImage($sprite)
+	_spritePosition($sprite)
+	_spriteWidth($sprite)
+	_spriteHeight($sprite)

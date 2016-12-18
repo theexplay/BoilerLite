@@ -1,0 +1,41 @@
+@import '__'
+@import '../_font/__'
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+html,
+body
+	font-family: $_f__common
+	width: 100%
+	//~/:hover &
+
+// Скрываем элементы с классом .no-mobile в телефоне
+.no-mobile
+
+	+_media($_b__mobile)
+		display: none !important
+
+// Отображаем только в мобиле, скрываем на планшете и десктопе
+.only-mobile
+
+	+_media($_b__tablet)
+		display: none !important
+
+	+_media($_b__desktop)
+		display: none !important
+
+
+// Отображаем только на ретине, на других устройствах скрываем
+.only-retina
+
+	+_media($_b__non-retina)
+		display: none !important
+
+// Скрывем .no-retina для retina устройств
+.no-retina
+
+	+_media($_b__retina)
+		display: none !important

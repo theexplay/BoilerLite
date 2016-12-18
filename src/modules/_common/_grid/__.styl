@@ -1,0 +1,30 @@
+$grid__cols = 12
+
+
+_grid_styles()
+  display: inline-block
+  vertical-align: top
+
+/**
+ * @mixin
+ * Сетка аналогичная бутстрапу, в контексте текущего проекта
+ * @param {number} $col - количество колонок
+ * @param {string} $prefix - префикс. (sm)small / (md)medium / (l)arge
+ * @example _grid(12, sm)
+ */
+
+_grid($col = $grid__cols, $prefix = null)
+  $step = 100 / $col
+	if $prefix
+    for i in (1..$col)
+      .col-{$prefix}-{i}
+        width: ($step * i)%
+        _grid_styles()
+	else
+		for i in (1..$col)
+			.col-{i}
+        width: ($step * i)%
+        _grid_styles()
+
+_grid_value($cols)
+	return (($cols * 100%) / $grid__cols)

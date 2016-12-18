@@ -1,0 +1,25 @@
+block vars
+  include _defaults
+  - requireScript('app.js')
+
+doctype html
+html
+  head
+    block head
+      meta(charset='utf-8')
+      title= pageTitle
+      include meta
+      link(rel='stylesheet', href='../css/app.css?#{Date.now()}')
+      include scripts
+
+  body(class=bodyClasses)
+
+    main.main
+
+      block header
+        include ../../components/header/header
+
+      block content
+
+    block footer
+      include ../../components/footer/footer

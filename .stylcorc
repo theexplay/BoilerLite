@@ -1,0 +1,31 @@
+{
+    "basedir": "src/modules/",
+    "file_ext": ".styl",
+    "import_rule": "@import",
+    "import_with_ext": false,
+    "append_to_buildfile": false,
+    "allow_buildfile_outside_basedir": false,
+    "use_semicolons": false,
+    "quote": "'",
+    "indent": "  ",
+    "newline": "\n",
+    "ensure_trailing_newline": true,
+    "file_write_options": "utf8",
+    "virtual_component_prefix": "_",
+    "files": {
+        ".": {
+            "filename": "{{NAME}}",
+            "imports": ["_"],
+            "import_extend_source": true,
+            "content": "{{NEWLINE}}.{{NAME}}{{NEWLINE}}{{INDENT}}// your code here",
+            "no_virtual": "content"
+        },
+        "_": {
+            "filename": "__",
+            "imports": ["c", "m"],
+            "import_extend_source": true,
+            "content": "// your vars and mixins here",
+            "no_virtual": ["content"]
+        }
+    }
+}
